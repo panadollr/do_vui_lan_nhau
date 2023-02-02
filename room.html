@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đố vui lẫn nhau</title>
+    <link rel="stylesheet" type="text/css" href="libary/semantic.min.css">
+    <script src="libary/jquery.min.js"></script>
+    <script src="libary/semantic.min.js"></script>
+</head>
+<body>
+
+<div id="user_1" style="height: 100%;width: 10%;background: #2185d0;float: left;color: white;
+text-align: center">
+    <h1 id="user_name" ></h1>
+    <h1 id="user_score"></h1>
+</div>
+
+<div id="main" style="height: 100%;width: 80%;float: left;padding:5px">
+ 
+  <div class="ui placeholder segment">
+    <div class="ui two column stackable grid">
+      <div class="column" >
+       
+        <div class="ui segment" style="height: 210px;">
+          <div class="ui threaded comments">
+            <h3 class="ui dividing header">Tin nhắn</h3>
+            <div id="messages" style="height: 90px;overflow-y: scroll;"> 
+          </div>
+      <hr>
+            <form id="message_form" class="ui form" style="margin-top: 10px;">
+              <div class="two fields">
+                <div class="field">
+                  <input required id="message" type="text" style="border: 1.5px solid black;" placeholder="Tin nhắn">
+                </div>
+                <button id="sendMsgBtn" class="ui blue button" type="submit">
+                 Gửi tin nhắn
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+      <div class="column" style="border: 2px solid black;">
+       
+<center>
+  <div class="ui celled list">
+    <h4>Thông tin phòng</h4>
+    <div class="item">
+      <div class="header">Mã phòng</div>
+      <p id="key_room"></p>
+    </div>
+    <div class="item">
+        <div class="header">Người tạo phòng</div>
+        <p id="room_creator"></p>
+      </div>
+      <div class="item">
+        <button id="outRoomBtn" class="ui small red button" onclick="outRoom()"></button>
+      </div>
+      <div id="check_to_start" class="item">  
+          <button id="readyBtn" class="ui disabled big green button">Sẵn sàng</button>
+      </div>
+  </div>
+</center>
+
+      </div>
+    </div>
+  </div>
+
+
+        <br>
+        <div>
+
+<div class="ui inverted segment" id="msg">
+    <span class="ui large info text" >Thông báo sẽ gửi đến người chơi tại đây</span>
+</div>
+
+            <div id="questioning_form" class="ui inverted segment" style="display: none;">
+                <form class="ui inverted form" >
+                    <div class="field">
+                      <label>Câu hỏi</label>
+                      <input id="question" type="text" placeholder="Câu hỏi" required>
+                    </div>
+                    <div class="two fields">
+                      <div class="field">
+                      <label>Câu trả lời 1</label>
+                      <input id="answer1" type="text" placeholder="Câu trả lời 1"  required>
+                    </div>
+                    <div class="field">
+                        <label>Câu trả lời 2</label>
+                        <input id="answer2" type="text" placeholder="Câu trả lời 2"  required>
+                    </div> 
+                    <div class="field">
+                        <label>Câu trả lời đúng</label>
+                        <select id="true_answer">
+                            <option id="option1" >Câu trả lời 1</option>
+                            <option id="option2">Câu trả lời 2</option>
+                          </select>
+                    </div>   
+                    </div>
+                   
+                    <center><button id="questioningBtn" class="ui blue button" type="submit">Ra câu hỏi</button></center>
+                  </form>
+              </div>
+
+              
+              <div id="answer_form" class="ui inverted segment" style="display: none;">
+                <form class="ui inverted form" >
+                    <div class="field">
+                      <div class="ui massive primary label" id="question" style="width: 100%;text-align: center;"></div>
+                    </div>
+                    <div class="two fields" id="answers">
+                      <div class="field">
+                        <a style="width: 100%;text-align: center;" class="ui big primary label" id="answer1"></a>
+                    </div>
+                    <div class="field">
+                      <a style="width: 100%;text-align: center;" class="ui big primary label" id="answer2"></a>
+                    </div>    
+                    </div>
+                  </form>
+              </div>
+
+        </div>
+
+</div>
+
+<div id="user_2" style="height: 100%;width: 10%;background: #db2828;float: left;color: white;text-align: center;">
+    <h1 id="user_name"></h1>
+    <h1 id="user_score"></h1>
+</div>
+    
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+<script src="js/firebase_db.js"></script>
+<script src="./js/room.js"></script>
+
+</body>
+</html>
